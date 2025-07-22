@@ -20,28 +20,16 @@ const ThankYou = () => {
         {/* Thank You Card */}
         <Card className="p-8 sm:p-12 shadow-xl">
           <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            Thank You!
+            Thank You for Your Inquiry!
           </h1>
           
           <div className="space-y-4 text-lg text-muted-foreground mb-8">
             <p>
-              Your request has been submitted successfully. We appreciate your interest in 
+              Your request has been sent successfully. We appreciate your interest in 
               <span className="text-primary font-semibold"> M.A. Enterprises</span>.
             </p>
-            
-            <div className="bg-secondary/50 rounded-lg p-6 my-6">
-              <p className="text-foreground font-semibold mb-2">
-                🚧 Site Under Development
-              </p>
-              <p className="text-sm">
-                Our website is currently under development. Our team will contact you soon 
-                to discuss your requirements and provide you with the best solutions for your business needs.
-              </p>
-            </div>
-            
             <p>
-              Someone from our team will contact you within <span className="text-primary font-semibold">24-48 hours</span> 
-              to discuss your requirements in detail.
+              A member of our team will contact you at your provided email address within <span className="text-primary font-semibold">24-48 hours</span>.
             </p>
           </div>
 
@@ -49,26 +37,18 @@ const ThankYou = () => {
           <div className="bg-card border rounded-lg p-6 mb-8">
             <h3 className="text-lg font-semibold text-foreground mb-3">Contact Information</h3>
             <div className="text-sm text-muted-foreground space-y-2">
-              <p>📧 Email: joinwithmaenterprises@gmail.com</p>
-              <p>🕒 Response Time: 24-48 hours</p>
+              <p>📧 For urgent matters, email us at: joinwithmaenterprises@gmail.com</p>
             </div>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="default" 
+              variant="hero" 
               size="lg"
               onClick={() => navigate('/')}
             >
               Back to Home
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => navigate('/register')}
-            >
-              Submit Another Request
             </Button>
           </div>
         </Card>

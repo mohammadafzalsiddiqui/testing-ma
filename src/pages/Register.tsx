@@ -35,8 +35,11 @@ const Register = () => {
     "Social Media Marketing"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Your Formspree URL is now included
+    const formEndpoint = "https://formspree.io/f/xgvzaaln";
     
     if (!formData.role || !formData.name || !formData.email) {
       toast({
@@ -47,32 +50,32 @@ const Register = () => {
       return;
     }
 
-    // Create mailto content
-    const subject = `Service Inquiry from ${formData.name}`;
-    const body = `
-Role: ${formData.role}
-Name: ${formData.name}
-Email: ${formData.email}
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData),
+      });
 
-Printing Services Interested In:
-${formData.printingServices.join(", ") || "None selected"}
-
-Digital Marketing Services Interested In:
-${formData.digitalServices.join(", ") || "None selected"}
-
-Additional Message:
-${formData.customMessage || "No additional message"}
-    `;
-
-    const mailtoLink = `mailto:joinwithmaenterprises@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Navigate to thank you page
-    setTimeout(() => {
-      navigate('/thank-you');
-    }, 1000);
+      if (response.ok) {
+        navigate('/thank-you');
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Could not submit your request. Please try again later.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Could not connect to the server. Please check your internet connection.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handlePrintingServiceChange = (service: string, checked: boolean) => {
