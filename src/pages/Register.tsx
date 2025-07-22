@@ -24,9 +24,12 @@ const Register = () => {
     "Flex",
     "Hoarding", 
     "Banners",
-    "Pamphlets",
+    "Brochures",
     "Visiting Card",
+    "Magazine",
+    "Prospectus",
     "Hand bill",
+    "Poster",
     "Other (please specify)"
   ];
 

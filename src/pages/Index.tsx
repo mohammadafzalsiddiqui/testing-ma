@@ -9,11 +9,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-secondary/50" />
+        {/* Background gradient - ADDED z-0 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-secondary/50 z-0" />
         
-        {/* Main content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+        {/* Main content - ADDED relative and z-10 */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
           <div className="text-center">
             {/* Logo */}
             <div className="flex justify-center mb-8">
@@ -30,8 +30,6 @@ const Index = () => {
             </h1>
             
             {/* Tagline */}
-
-            
             <div className="h-1 w-24 bg-primary mx-auto mb-8 rounded-full" />
             
             <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -46,14 +44,14 @@ const Index = () => {
               onClick={() => navigate('/register')}
               className="mb-16"
             >
-              Launch App
+              Contact Us Now
             </Button>
           </div>
         </div>
         
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-4 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+        {/* Decorative elements - ADDED z-0 to both */}
+        <div className="absolute top-1/4 left-4 w-64 h-64 bg-primary/5 rounded-full blur-3xl z-0" />
+        <div className="absolute bottom-1/4 right-4 w-64 h-64 bg-accent/5 rounded-full blur-3xl z-0" />
       </div>
       
       {/* Services Preview Section */}
